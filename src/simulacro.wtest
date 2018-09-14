@@ -1,0 +1,8 @@
+import depositos.*
+import camionydepositos.*
+
+test "carga de camion" {
+	camion.carga(knight_Rider)
+	assert.equals(knight_Rider,camion.tienes_cargado_algo(knight_Rider))
+
+}

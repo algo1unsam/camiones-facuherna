@@ -1,24 +1,39 @@
 object camion {
-	var property elementosDeCarga=[]
 
-	method carga(algo){
-		return elementosDeCarga.add(algo)
+	var property elementosDeCarga = []
+
+	method carga(algo) {
+		elementosDeCarga.add(algo)
 	}
-	method descarga(algo){
+
+	method descarga(algo) {
 		elementosDeCarga.remove(algo)
 	}
-	method tienes_cargado_algo(algo){
+
+	method tienes_cargado_algo(algo) {
 		return elementosDeCarga.contains(algo)
 	}
 
 }
-object deposito{
-	var property guardado=[]
-	
-	method recibir(algo){
-		guardado.addAll({algo})
+
+object deposito {
+
+	var property guardado = []
+
+	method descargar() {
+		var descarga = []
+		descarga.addAll({ camion.elementosDeCarga()})
+		camion.elementosDeCarga().clear()
+		return descarga
 	}
-	method llenar_camion(){
-		guardado.forEach{algo=>guardado.remove(algo)and camion.carga(algo)}
+
+	method recibir() {
+		guardado.addAll({ self.descargar()})
 	}
+
+	method llenar_camion() {
+		guardado.forEach{ algo => camion.carga(algo)}.remove(algo)
+	}
+
 }
+
