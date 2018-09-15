@@ -1,5 +1,5 @@
 import depositos.*
-import camionydepositos.*
+import transporteYDepositos.*
 
 test "carga de camion" {
 	camion.carga(knight_Rider)
