@@ -14,7 +14,7 @@ object cargas {
 	}
 
 	method aceptaCarga(algo) {
-		return algo < cargaMaxima
+		return algo.peso() <= cargaMaxima
 	}
 	
 

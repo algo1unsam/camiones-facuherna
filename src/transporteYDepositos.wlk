@@ -1,11 +1,12 @@
 import agregadosDelCamion.*
+import depositos.*
 
 object camion {
 
 	var property elementosDeCarga = []
 
 	method carga(algo) {
-		if (algo < cargas.cargaDisponibleDelCamion()) {
+		if (cargas.aceptaCarga(algo)) {
 			elementosDeCarga.add(algo)
 		}
 	}

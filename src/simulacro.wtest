@@ -1,8 +1,26 @@
 import depositos.*
 import transporteYDepositos.*
+import agregadosDelCamion.*
 
 test "carga de camion" {
+	cargas.cargaMaxima(2000)
 	camion.carga(knight_Rider)
-	assert.equals(knight_Rider,camion.tienes_cargado_algo(knight_Rider))
+	assert.that(camion.tienes_cargado_algo(knight_Rider))
+
+}
+
+test "descarga de camion" {
+	cargas.cargaMaxima(2000)
+	camion.carga(knight_Rider)
+	camion.descarga(knight_Rider)
+	assert.notThat(camion.tienes_cargado_algo(knight_Rider))
+
+}
+
+test "recibir en el deposito" {
+	cargas.cargaMaxima(2000)
+	camion.carga(knight_Rider)
+	deposito.recibir(camion)
+	assert.notThat(deposito.guardado().contains(knight_Rider))
 
 }
