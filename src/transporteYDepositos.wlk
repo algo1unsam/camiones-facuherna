@@ -43,6 +43,7 @@ object deposito {
 
 	method recibir(transporte) {
 		guardado.addAll({ transporte.elementosDeCarga()})
+		// elementos de carga es la lista del deposito entonces
 		transporte.elementosDeCarga().clear()
 	}
 

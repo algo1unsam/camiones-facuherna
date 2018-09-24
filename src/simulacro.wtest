@@ -2,6 +2,11 @@ import depositos.*
 import transporteYDepositos.*
 import agregadosDelCamion.*
 
+// TODO había mas cosas para testear, por ejemplo la peligrosidad,
+// las rutas, otras cargas
+// por otro lado, el ejercicio sólo habla de recibir un camíon y cargar un cambión
+// y no al revés, es decir, las cosas que se reciben en el depósito nunca especifica como
+// ni de donde llegan.
 test "carga de camion" {
 	cargas.cargaMaxima(2000)
 	camion.carga(knight_Rider)
